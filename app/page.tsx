@@ -4,6 +4,7 @@ import React from 'react'
 import CompanionCard from "@/components/CompanionCard";
 import CompanionsList from "@/components/CompanionsList";
 import CTA from "@/components/CTA";
+import {recentSessions} from "@/constants";
 
 const Page = () => {
   return (
@@ -15,7 +16,11 @@ const Page = () => {
             <CompanionCard id={'789'} name={'Verba the Vocbulary Builder'} topic={'language'} subject={'English Literature'} duration={30} color={'#BDE7FF'}/>
         </section>
         <section className="home-section">
-            <CompanionsList />
+            <CompanionsList
+                title={'Recent Sessions'}
+            companions={recentSessions}
+            classNames={"w-2/3 max-lg:w-full"}
+            />
             <CTA />
         </section>
     </main>
