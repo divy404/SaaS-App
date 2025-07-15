@@ -2,6 +2,9 @@
 
 import {auth} from "@clerk/nextjs/server";
 import {createSupabaseClient} from "@/lib/supabase";
+import {output, ZodObject, ZodString} from "zod";
+import {$strip} from "zod/v4/core";
+import {Writeable} from "zod/v3";
 
 export  const  createCompanion = async (formData: output<ZodObject<Writeable<{
     name: ZodString;
@@ -21,4 +24,8 @@ export  const  createCompanion = async (formData: output<ZodObject<Writeable<{
 
     if (error || !data) throw new Error(error ?.message || 'Failed to create companion');
     return data[0];
+}
+
+export const getAllCompanions = async ({limit = 10,page = 1, subject, topic}) => {
+
 }
